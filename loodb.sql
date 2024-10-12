@@ -6,6 +6,9 @@ USE loodb;
 
 CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
+    username TEXT,
+    pwd TEXT,
+    email TEXT,
      
 )
 

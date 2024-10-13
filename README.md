@@ -19,3 +19,18 @@ Accomplishments as a team thus far:
     1. User stories
     2. Github setup
     3. Tasks for each developer
+
+---
+
+SETUP:
+
+PREREQ:
+Python 3.13.0
+Pip 24.2
+Pipenv 2024.1.0
+
+1. Run `pipenv shell` to launch virtal env.
+2. Run `pipenv install` to install all dependencies.
+    NOTE: If dependecies are not working, and you are using VS Code, select the correct Pyton interpeter. To do this, press Ctrl-Shift-P (Cmd-Shift-P on Mac) and search: Pyton: Select Interpreter. Select the one that looks like:
+    > Python 3.13.0 ('Loo-Locator--{random-letters}': Pipenv)
+3. Run `pipenv exit` to exit enviornment.

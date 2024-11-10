@@ -2,15 +2,36 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 body {
-    font-family: Arial, sans-serif;
     background-color: #f0f0f0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100vh;
+}
+
+.hero{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 55%;
+    background-image: url("../static/UNCCBackground.jpg");
+    background-position: center;
+    background-size: cover;
+    background-color: #005035;
     height: 100vh;
+}
+.hero img{
+    width: 50%;
+}
+.side{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
 }
 
 .login-container {
@@ -51,7 +72,7 @@ input[type="password"] {
 .login-btn {
     width: 100%;
     padding: 10px;
-    background-color: #4CAF50;
+    background-color: #005035;
     color: white;
     border: none;
     border-radius: 4px;
@@ -60,6 +81,6 @@ input[type="password"] {
 }
 
 .login-btn:hover {
-    background-color: #45a049;
+    background-color: #005d3e;
 }
 

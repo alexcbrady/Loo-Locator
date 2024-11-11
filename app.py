@@ -22,9 +22,27 @@ def index_form():
     db.create_all()
     return render_template('index.html')
 
-@app.get('/login')
+@app.get('/main')
+def main_form():
+    return render_template('main.html')
+
+@app.get('/signin')
 def login_form():
     return render_template('login.html')
+
+@app.post('/signin')
+def login():
+    #retrieve credentials from form
+    username = request.form.get('username')
+    password = request.form.get('password')
+
+    #if login returns something, redirect to main page
+    #needs additional work to set the logined user to be "active"
+    if (website_repository_singleton.signin(username, password)):
+        return redirect('/main')
+    #otherwise, redirect back to singin page to try again
+    else:
+       return redirect('/signin') 
 
 @app.get('/signup')
 def signup_form():
@@ -39,8 +57,9 @@ def signup():
     
     #if a user tries to sign up with credentials that do not already have a user
     if (website_repository_singleton.findUser(username, email) == None):
-        #add user to db, then redirect to profile page
+        #add user to db, then redirect to main page
+        #needs additional work to set the registerd user to be "active"
         website_repository_singleton.signup(username, email, password)
-        #return redirect('/profile/{user_id}')
+        return redirect('/main')
     #otherwise redirect back to signup page
     return redirect('/signup')

@@ -12,4 +12,14 @@ class WebsiteRepository:
         db.session.commit()
         return newUser
     
+    def signin(self, username, password):
+        foundUser = User.query.filter_by(usern = username).first()
+        if (foundUser):
+            if (foundUser.passw == password):
+                return foundUser
+            else:
+                return None
+        else:
+            return None
+    
 website_repository_singleton = WebsiteRepository()

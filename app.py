@@ -9,7 +9,7 @@ from src.repositories.WebsiteRepository import website_repository_singleton
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:password#@localhost:3306/loodb'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:password@localhost:3306/loodb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 if not database_exists(app.config['SQLALCHEMY_DATABASE_URI']):

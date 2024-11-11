@@ -39,7 +39,8 @@ def signup():
     
     #if a user tries to sign up with credentials that do not already have a user
     if (website_repository_singleton.findUser(username, email) == None):
-        #redirect to profile page
+        #add user to db, then redirect to profile page
         website_repository_singleton.signup(username, email, password)
+        #return redirect('/profile/{user_id}')
     #otherwise redirect back to signup page
     return redirect('/signup')

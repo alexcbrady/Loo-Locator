@@ -5,10 +5,11 @@ import pymysql
 pymysql.install_as_MySQLdb() #workaround for mysqlclient, .whl files not being found on windows machines, using pymysql as a substitute for mysqldb
 
 from src.models import db
+from src.repositories.WebsiteRepository import website_repository_singleton
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:PASSWORD@localhost:3306/loodb'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:Ed200341BenSQLMy#@localhost:3306/loodb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 if not database_exists(app.config['SQLALCHEMY_DATABASE_URI']):
@@ -22,5 +23,23 @@ def index_form():
     return render_template('index.html')
 
 @app.get('/login')
-def login():
+def login_form():
     return render_template('login.html')
+
+@app.get('/signup')
+def signup_form():
+    return render_template('signup.html')
+
+@app.post('/signup')
+def signup():
+    #retrieve credentials from form
+    username = request.form.get('username')
+    email = request.form.get('email')
+    password = request.form.get('password')
+    
+    #if a user tries to sign up with credentials that do not already have a user
+    if (website_repository_singleton.findUser(username, email) == None):
+        #redirect to profile page
+        website_repository_singleton.signup(username, email, password)
+    #otherwise redirect back to signup page
+    return redirect('/signup')

@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <link rel="stylesheet" href="../static/loginstyles.css">
+    <style>
+         .error-message.global {
+            color: red;
+            font-size: 1em;
+            margin-bottom: 1em;
+        }
+    </style>
 </head>
 <body>
     <div class="hero">
@@ -13,7 +20,12 @@
     <div class="side">
         <div class="login-container">
             <h2>Login</h2>
-            <form action="/signin" method="POST">
+
+            {% if error_message %}
+            <p class="error-message global">{{ error_message }}</p>
+            {% endif %}
+
+            <form action="/signin" method="POST" id="loginForm">
                 <div class="input-group">
                     <label for="username">User Name</label>
                     <input type="text" id="username" name="username" required>
@@ -26,6 +38,15 @@
             </form>
         </div>
     </div>
-    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const errorMessage = document.getElementById('globalError');
+            if (errorMessage) {
+                setTimeout(() => {
+                    errorMessage.style.display = 'none';
+                }, 15000); // 15000 milliseconds = 15 seconds
+            }
+        });
+    </script>
 </body>
 </html>

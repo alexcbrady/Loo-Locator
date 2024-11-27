@@ -1,5 +1,6 @@
-from flask import Flask, redirect, render_template, request
+from flask import Flask, redirect, render_template, request, url_for, session
 from sqlalchemy_utils import database_exists, create_database
+import os
 
 import pymysql
 pymysql.install_as_MySQLdb() #workaround for mysqlclient, .whl files not being found on windows machines, using pymysql as a substitute for mysqldb
@@ -8,6 +9,8 @@ from src.models import db
 from src.repositories.WebsiteRepository import website_repository_singleton
 
 app = Flask(__name__)
+# a secret key for securely signing the session cookie, essential for logout feature
+app.secret_key = os.urandom(24)  # Generate a random secret key
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:alikaka1@localhost:3306/loodb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -66,3 +69,9 @@ def signup():
         return redirect('/main')
     #otherwise redirect back to signup page
     return redirect('/signup')
+
+
+@app.get('/logout')
+def logout():
+    session.clear()  # Clear all session data
+    return redirect(url_for('index_form'))

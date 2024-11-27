@@ -5,6 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/mainstyles.css">
     <title>Document</title>
+    <style>
+        /* Style for the dropdown container */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Style for the dropdown content */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Show the dropdown content when the dropdown is active */
+        .dropdown.active .dropdown-content {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -15,7 +48,14 @@
                 <li>|</li>
                 <li><a>Testimonial</a></li>
                 <li>|</li>
-                <li><a class="button">Account</a></li>
+                <li class="dropdown">
+                    <a class="button" id="accountButton">Account</a>
+                    <div class="dropdown-content">
+                        <a href="#">Profile</a>
+                        <a href="#">Manage Account</a>
+                        <a href="{{ url_for('logout') }}">Logout</a>
+                    </div>
+                </li>
             </ul>
         </nav>
     </header>
@@ -31,6 +71,24 @@
             <div>Bathroom Placeholder</div>
             <div>Bathroom Placeholder</div>
             <div>Bathroom Placeholder</div>
+        </section>
     </main>
+    <script>
+        // Get the Account button and dropdown menu
+        const accountButton = document.getElementById('accountButton');
+        const dropdown = accountButton.parentElement;
+
+        // Toggle dropdown visibility on button click
+        accountButton.addEventListener('click', () => {
+            dropdown.classList.toggle('active');
+        });
+
+        // Close the dropdown if clicking outside
+        window.addEventListener('click', (event) => {
+            if (!dropdown.contains(event.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>

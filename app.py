@@ -12,7 +12,7 @@ app = Flask(__name__)
 # a secret key for securely signing the session cookie, essential for logout feature
 app.secret_key = os.urandom(24)  # Generate a random secret key
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:alikaka1@localhost:3306/loodb'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:password@localhost:3306/loodb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 if not database_exists(app.config['SQLALCHEMY_DATABASE_URI']):

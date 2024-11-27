@@ -9,7 +9,7 @@ from src.repositories.WebsiteRepository import website_repository_singleton
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:password@localhost:3306/loodb'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:alikaka1@localhost:3306/loodb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 if not database_exists(app.config['SQLALCHEMY_DATABASE_URI']):
@@ -42,7 +42,10 @@ def login():
         return redirect('/main')
     #otherwise, redirect back to singin page to try again
     else:
-       return redirect('/signin') 
+        error_message = "Invalid username or password. Please try again."
+        return render_template('login.html', error_message=error_message)
+       
+    
 
 @app.get('/signup')
 def signup_form():

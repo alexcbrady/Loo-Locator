@@ -3,21 +3,27 @@
     padding: 0;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+body{
+    background-color: #e6e6e6;
+}
 
 header{
-    padding: 0px 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0px auto;
     padding: 10px 200px;
-    background-color: #87ad9f;
+    background-color: #ffffff;
+    position: sticky;
+    top: 0;
+    box-shadow: 1px 2px 0px 0px rgb(192, 192, 192);
 }
 header img{
     width: 200px;
 }
 nav{
     width: 30%;
+    min-width: 350px;
 }
 nav ul{
     display: flex;
@@ -35,7 +41,7 @@ a:hover{
 
 main{
     display: flex;
-    width: 70%;
+    width: 100%;
     margin: 0px auto;
     flex-direction: column;
     justify-content: center;
@@ -44,26 +50,30 @@ main{
 }
 
 main img{
-    max-width: 80%;
-    min-width: 600px;
+    max-width: 60%;
+    min-width: 800px;
     margin: 50px 0px;
     border-radius: 35px;
+    box-shadow: 1px 3px 3px 3px rgb(192, 192, 192);
 }
 main h1{
     padding: 0px 0px 40px 0px;
 }
 .container {
-    width: 80%;
+    width: 90%;
     display: grid;
     grid-auto-columns: minmax(15rem, auto);
-    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    grid-gap: 2rem;
+    color: #ffffff;
+    
 }
 
 .container div{
-    background-color: #87ad9f;
+    background-color: #005035;
     border-radius: 20px;
-    padding: 2rem;
+    padding: 60px;
     font-size: 2rem;
     text-align: center;
+    box-shadow: 1px 2px 2px 2px rgb(192, 192, 192);
 }

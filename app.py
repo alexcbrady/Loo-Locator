@@ -1,6 +1,7 @@
-from flask import Flask, redirect, render_template, request, url_for, session
+from flask import Flask, redirect, render_template, request, session
 from sqlalchemy_utils import database_exists, create_database
 import os
+from dotenv import load_dotenv
 
 import pymysql
 pymysql.install_as_MySQLdb() #workaround for mysqlclient, .whl files not being found on windows machines, using pymysql as a substitute for mysqldb
@@ -12,7 +13,21 @@ app = Flask(__name__)
 # a secret key for securely signing the session cookie, essential for logout feature
 app.secret_key = os.urandom(24)  # Generate a random secret key
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:password@localhost:3306/loodb'
+load_dotenv()
+DB_PASSWORD = os.getenv('DB_PASSWORD')
+API_KEY = os.getenv('API_KEY')
+
+MARKERS_DICT = {
+    'WOODWARD': '&markers=color:green%7Clabel:W%7CWoodward+Hall,+Charlotte,+NC',
+    'FRETWELL': '&markers=color:green%7Clabel:F%7CFretwell,+Charlotte,+NC',
+    'LIBRARY': '&markers=color:green%7Clabel:L%7CJ.+Murrey+Atkins+Library'
+}
+
+MARKERS = ''
+for key in MARKERS_DICT:
+    MARKERS += MARKERS_DICT[key]
+
+app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql://root:{DB_PASSWORD}@localhost:3306/loodb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 if not database_exists(app.config['SQLALCHEMY_DATABASE_URI']):
@@ -23,11 +38,12 @@ db.init_app(app)
 @app.get('/')
 def index_form():
     db.create_all()
+    website_repository_singleton.buildings()
     return render_template('index.html')
 
 @app.get('/main')
 def main_form():
-    return render_template('main.html')
+    return render_template('main.html',API_KEY=API_KEY,MARKERS=MARKERS)
 
 @app.get('/signin')
 def login_form():
@@ -47,8 +63,6 @@ def login():
     else:
         error_message = "Invalid username or password. Please try again."
         return render_template('login.html', error_message=error_message)
-       
-    
 
 @app.get('/signup')
 def signup_form():
@@ -70,8 +84,13 @@ def signup():
     #otherwise redirect back to signup page
     return redirect('/signup')
 
-
 @app.get('/logout')
 def logout():
     session.clear()  # Clear all session data
-    return redirect(url_for('index_form'))
+    return redirect('/')
+
+@app.get('/building')
+def building_form():
+    building = website_repository_singleton.findBuilding(request.args.get('button', 'default'))
+    print(building)
+    return render_template('building.html', building=building)

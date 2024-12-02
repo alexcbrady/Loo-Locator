@@ -11,3 +11,10 @@ CREATE TABLE users (
     
     user_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL
 );
+
+CREATE TABLE buildings (
+    bname VARCHAR(20) NOT NULL,
+    baddress VARCHAR(255) NOT NULL,
+
+    building_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL
+)

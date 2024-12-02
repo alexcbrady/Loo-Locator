@@ -60,18 +60,10 @@
         </nav>
     </header>
     <main>
-        <img src="../static/UNCCPlaceHoldImage.JPG">
-        <h1>Top Rated</h1>
-        <section class="container">
-            <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div>
-        </section>
+        <img src="https://maps.googleapis.com/maps/api/staticmap?center=University+of+North+Carolina+at+Charlotte&zoom=15&size=1216x2337&scale=2={{ MARKERS }}&key={{ API_KEY }}">
+        <form action="/building", method="GET">
+            <button name="button", value="Woodward Hall">Woodward</button>
+        </form>
     </main>
     <script>
         // Get the Account button and dropdown menu

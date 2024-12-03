@@ -9,10 +9,9 @@ body{
 
 header{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin: 0px auto;
-    padding: 10px 200px;
     background-color: #ffffff;
     position: sticky;
     top: 0;

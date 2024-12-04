@@ -5,6 +5,7 @@
 }
 body{
     background-color: #e6e6e6;
+    padding-bottom: 40px;
 }
 
 header{
@@ -34,6 +35,11 @@ nav ul li{
     list-style: none;
 }
 
+nav ul li a{
+    text-decoration: none;
+    color: black;
+}
+
 a:hover{
     color: rgb(207, 207, 207);
 }
@@ -58,6 +64,15 @@ main img{
 main h1{
     padding: 0px 0px 40px 0px;
 }
+
+.button{
+    background-color: #005035;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+}
+
 .container {
     width: 90%;
     display: grid;

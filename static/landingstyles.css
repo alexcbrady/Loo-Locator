@@ -35,6 +35,11 @@ nav ul li{
     list-style: none;
 }
 
+nav ul li a{
+    text-decoration: none;
+    color: black;
+}
+
 a:hover{
     color: rgb(170, 170, 170);
 }

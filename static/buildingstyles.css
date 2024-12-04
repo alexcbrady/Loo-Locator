@@ -50,19 +50,35 @@ main{
     margin: 0px auto;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 
+}
+
+.building{
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.building div{
+    width: 40%;
+    padding: 50px;
+}
+
+.building div h2{
+    padding: 20px;
+}
+.building div p{
+    font-size: 20px;
 }
 
 main img{
-    max-width: 60%;
-    min-width: 800px;
-    margin: 50px 0px;
-    border-radius: 35px;
-    box-shadow: 1px 3px 3px 3px rgb(192, 192, 192);
+    width: 300px;
+    padding:  0px 20px;
 }
+
 main h1{
-    padding: 0px 0px 40px 0px;
+    text-align: center;
+    padding: 30px 0px 10px 0px;
 }
 
 .button{
@@ -80,6 +96,8 @@ main h1{
     grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
     grid-gap: 2rem;
     color: #ffffff;
+    padding: 20px 0px 0px 0px;
+    margin: 0 auto;
     
 }
 

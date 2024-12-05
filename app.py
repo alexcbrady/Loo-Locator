@@ -95,12 +95,14 @@ def logout():
 
 @app.get('/account')
 def account():
-   return render_template('account.html', account=session.get('user')) 
+    reviews = website_repository_singleton.profileReviews(session.get('user')['user_id'])
+    return render_template('account.html', account=session.get('user'), reviews=reviews) 
 
 @app.get('/building')
 def building_form():
     building = website_repository_singleton.findBuilding(request.args.get('button', 'default'))
-    return render_template('building.html', building=building)
+    reviews = website_repository_singleton.buildingReviews(building.building_id)
+    return render_template('building.html', building=building, reviews=reviews)
 
 @app.get('/review')
 def new_form():

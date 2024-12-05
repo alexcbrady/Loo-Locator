@@ -50,4 +50,12 @@ class WebsiteRepository:
         foundReview = Review.query.filter_by(review_id = review_id).first()
         return foundReview
 
+    def profileReviews(self, user_id):
+        foundReviews = Review.query.filter_by(user_id = user_id)
+        return foundReviews
+
+    def buildingReviews(self, building_id):
+        foundReviews = Review.query.filter_by(building_id = building_id)
+        return foundReviews
+
 website_repository_singleton = WebsiteRepository()

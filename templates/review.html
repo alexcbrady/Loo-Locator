@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Form</title>
+</head>
+<body>
+    <h1>Submit a Review</h1>
+    <form action="/review" method="post">
+        <!-- Review Title -->
+        <label for="review-title">Review Title:</label><br>
+        <input type="text" id="review-title" name="review_title" required><br><br>
+
+        <!-- Review Body -->
+        <label for="review-body">Review Body:</label><br>
+        <textarea id="review-body" name="review_body" rows="5" cols="30" required></textarea><br><br>
+
+        <label for="review-rating">Rating (1 to 5):</label><br>
+        <select id="review-rating" name="review_rating" required>
+            <option value="" disabled selected>Select a number</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select><br><br>
+
+        <!-- Date (display only) -->
+        <label for="review-date">Date:</label><br>
+        <span id="review-date">2024-12-04</span><br><br>
+
+        <!-- Building (display only) -->
+        <label for="review-building">Building:</label><br>
+        <select id="review-building" name="review_building" required>
+            <option value="" disabled selected>Select a building</option>
+            <option value="Woodward Hall">Woodward Hall</option>
+            <option value="Fretwell">Fretwell</option>
+            <option value="J. Murrey Atkins Library">J. Murrey Atkins Library</option>
+        </select><br><br>
+        <!-- Submit Button -->
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

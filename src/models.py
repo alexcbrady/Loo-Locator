@@ -30,7 +30,6 @@ class Review(db.Model):
     title = db.Column(db.String(100), nullable=False)
     body = db.Column(db.String(100), nullable=False)
     rating = db.Column(db.Integer, nullable=False)
-    title = db.Column(db.String(100), nullable=False)
 
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'), nullable=False)
     building_id = db.Column(db.Integer, db.ForeignKey('building.building_id'), nullable=False)

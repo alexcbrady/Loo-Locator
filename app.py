@@ -101,3 +101,21 @@ def account():
 def building_form():
     building = website_repository_singleton.findBuilding(request.args.get('button', 'default'))
     return render_template('building.html', building=building)
+
+@app.get('/review')
+def new_form():
+    return render_template('review.html')
+
+@app.post('/review')
+def new():
+    title = request.form.get('review_title')
+    body = request.form.get('review_body')
+    rating = request.form.get('review_rating')
+    building = request.form.get('review_building')
+
+    building_id = website_repository_singleton.findBuilding(building).building_id
+    user_id = website_repository_singleton.findUser(session.get('user')['usern'], session.get('user')['email']).user_id
+
+    website_repository_singleton.newReview(title, body, rating, user_id, building_id) 
+
+    return redirect('/main')

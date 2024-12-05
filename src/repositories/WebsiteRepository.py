@@ -1,4 +1,4 @@
-from src.models import db, User, Building
+from src.models import db, User, Building, Review
 
 class WebsiteRepository:
 
@@ -39,5 +39,15 @@ class WebsiteRepository:
         foundBuilding = Building.query.filter_by(bname = building_name).first()
         #shouldn't require error handling since this is just used on clicks of predetermined buttons
         return foundBuilding
-    
+
+    def newReview(self, title, body, rating, user_id, building_id):
+        newReview = Review(title=title, body=body, rating=rating, user_id=user_id, building_id=building_id)
+        db.session.add(newReview)
+        db.session.commit()
+        return None
+
+    def viewReview(self, review_id):
+        foundReview = Review.query.filter_by(review_id = review_id).first()
+        return foundReview
+
 website_repository_singleton = WebsiteRepository()

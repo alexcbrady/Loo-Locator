@@ -81,6 +81,15 @@ section{
     text-decoration: none;
     color: white;
 }
+.button2{
+    background-color: rgb(207, 207, 207);
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
 
 .reviews{
     background-color: white;
@@ -103,6 +112,8 @@ section h1{
 }
 
 .review{
+    display: flex;
+    justify-content: space-between;
     color: white;
     background-color: #005035;
     padding: 20px;
@@ -113,4 +124,8 @@ section h1{
 }
 .reviews h2{
     padding-bottom: 10px;
+}
+
+.review a:hover{
+    color: #5f776f;
 }

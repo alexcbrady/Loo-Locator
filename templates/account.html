@@ -101,17 +101,24 @@
                 <h2>Lorem ipsum dolor sit amet.</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse ab eius, aperiam dolor nulla dicta autem eos accusantium, excepturi iure voluptas in aspernatur. Temporibus, reiciendis accusantium explicabo alias tenetur saepe eaque, nihil totam numquam perferendis aliquid ratione sapiente libero perspiciatis.</p>
             </div> -->
-            <table>
-                <tbody>
-                   {% for review in reviews %} 
-                   <tr>
-                    <td>
-                        {{ review.title }}
-                    </td>
-                   </tr>
-                   {% endfor %}
-                </tbody>
-            </table>
+            <div class="review">
+                <div>
+                    <table>
+                        <tbody>
+                           {% for review in reviews %} 
+                           <tr>
+                            <td>
+                                {{ review.title }}
+                            </td>
+                           </tr>
+                           {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <a class="button2">Edit</a>
+            </div>
+            
         </div>
     </section>
     <script>

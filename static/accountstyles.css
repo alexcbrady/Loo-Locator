@@ -5,7 +5,6 @@
 }
 body{
     background-color: #e6e6e6;
-    padding-bottom: 40px;
 }
 
 header{
@@ -32,7 +31,7 @@ nav ul{
 }
 
 nav ul li{
-    list-style: none;
+    list-style: none;   
 }
 
 nav ul li a{
@@ -44,25 +43,35 @@ a:hover{
     color: rgb(207, 207, 207);
 }
 
-main{
+section{
+    padding: 22px 0px;
     display: flex;
-    width: 100%;
-    margin: 0px auto;
     flex-direction: column;
+}
+
+.profile{
+    display: flex;
     justify-content: center;
     align-items: center;
-
+    margin: 0 auto;
+    padding-bottom: 30px;
+    width: 30%;
 }
 
-main img{
-    max-width: 60%;
-    min-width: 800px;
-    margin: 50px 0px;
-    border-radius: 35px;
+.profile img{
+    background-color: #ffffff;
+    border-radius: 100%;
     box-shadow: 1px 3px 3px 3px rgb(192, 192, 192);
+    min-width: 250px;
+    max-width: 250px;
 }
-main h1{
-    padding: 0px 0px 40px 0px;
+
+.pInfo {
+    text-align: center;
+    min-width: 300px;
+}
+.profile div p{
+    font-size: 20px;
 }
 
 .button{
@@ -73,21 +82,35 @@ main h1{
     color: white;
 }
 
-.container {
-    width: 90%;
-    display: grid;
-    grid-auto-columns: minmax(15rem, auto);
-    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
-    grid-gap: 2rem;
-    color: #ffffff;
-    
+.reviews{
+    background-color: white;
+    padding: 25px 50px;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 1px 3px 3px 3px rgb(192, 192, 192);
+    height: 50vh;
+    overflow-y: auto;
+}
+.reviews::-webkit-scrollbar{
+    display: none;
 }
 
-.container div{
-    background-color: #005035;
-    border-radius: 20px;
-    padding: 60px;
-    font-size: 2rem;
+section h1{
+    font-size: 35px;
+    padding-bottom: 20px;
     text-align: center;
-    box-shadow: 1px 2px 2px 2px rgb(192, 192, 192);
+}
+
+.review{
+    color: white;
+    background-color: #005035;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 1px 3px 3px 3px rgb(192, 192, 192);
+    width: 80%;
+    margin:  30px auto;
+}
+.reviews h2{
+    padding-bottom: 10px;
 }

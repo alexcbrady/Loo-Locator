@@ -7,6 +7,7 @@ name = "pypi"
 flask-sqlalchemy = "*"
 pymysql = "*"
 sqlalchemy-utils = "*"
+python-dotenv = "*"
 
 [dev-packages]
 

@@ -1,6 +1,19 @@
-from src.models import db, User
+from src.models import db, User, Building, Review
 
 class WebsiteRepository:
+
+    #initalize buildings table
+    def buildings(self):
+        if Building.query.first() == None:
+            buildings = [
+                Building(bname = "Woodward Hall", baddress = "8723 Cameron Blvd, Charlotte, NC 28262"),
+                Building(bname = "Fretwell", baddress = "Charlotte, NC 28262"),
+                Building(bname = "J. Murrey Atkins Library", baddress = "9201 University City Blvd, Charlotte, NC 28223")
+            ]
+            db.session.bulk_save_objects(buildings)
+            db.session.commit()
+        else:
+            return None
 
     def findUser(self, username, email):
         foundUser = User.query.filter_by(email = email, usern = username).first()
@@ -22,4 +35,27 @@ class WebsiteRepository:
         else:
             return None
     
+    def findBuilding(self, building_name):
+        foundBuilding = Building.query.filter_by(bname = building_name).first()
+        #shouldn't require error handling since this is just used on clicks of predetermined buttons
+        return foundBuilding
+
+    def newReview(self, title, body, rating, user_id, building_id):
+        newReview = Review(title=title, body=body, rating=rating, user_id=user_id, building_id=building_id)
+        db.session.add(newReview)
+        db.session.commit()
+        return None
+
+    def viewReview(self, review_id):
+        foundReview = Review.query.filter_by(review_id = review_id).first()
+        return foundReview
+
+    def profileReviews(self, user_id):
+        foundReviews = Review.query.filter_by(user_id = user_id)
+        return foundReviews
+
+    def buildingReviews(self, building_id):
+        foundReviews = Review.query.filter_by(building_id = building_id)
+        return foundReviews
+
 website_repository_singleton = WebsiteRepository()

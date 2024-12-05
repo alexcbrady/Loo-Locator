@@ -44,6 +44,8 @@
         <img src="../static/LooLocator2.png">
         <nav>
             <ul>
+                <li><a>Home</a></li>
+                <li>|</li>
                 <li><a>About</a></li>
                 <li>|</li>
                 <li><a>Testimonial</a></li>
@@ -51,8 +53,7 @@
                 <li class="dropdown">
                     <a class="button" id="accountButton">Account</a>
                     <div class="dropdown-content">
-                        <a href="#">Profile</a>
-                        <a href="#">Manage Account</a>
+                        <a href="{{ url_for('account') }}">Manage Account</a>
                         <a href="{{ url_for('logout') }}">Logout</a>
                     </div>
                 </li>
@@ -60,18 +61,13 @@
         </nav>
     </header>
     <main>
-        <img src="../static/UNCCPlaceHoldImage.JPG">
-        <h1>Top Rated</h1>
-        <section class="container">
-            <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div>
-        </section>
+        <img src="https://maps.googleapis.com/maps/api/staticmap?center=University+of+North+Carolina+at+Charlotte&zoom=15&size=1216x2337&scale=2={{ MARKERS }}&key={{ API_KEY }}">
+        <form action="/building", method="GET">
+            <button name="button", value="Woodward Hall">Woodward</button>
+        </form>
+        <form action="/review", method="GET">
+            <button type="submit">New Review</button>
+        </form>
     </main>
     <script>
         // Get the Account button and dropdown menu

@@ -11,3 +11,26 @@ CREATE TABLE users (
     
     user_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL
 );
+
+CREATE TABLE buildings (
+    bname VARCHAR(20) NOT NULL,
+    baddress VARCHAR(255) NOT NULL,
+
+    building_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL
+)
+
+CREATE TABLE reviews (
+    title VARCHAR(100) NOT NULL,
+    body VARCHAR(100) NOT NULL,
+    rating INT NOT NULL,
+
+    review_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+
+    user_id INT NOT NULL,
+    building_id INT NOT NULL,
+
+    CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(user_id)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fk_building FOREIGN KEY (building_id) REFERENCES buildings(building_id)
+        ON DELETE CASCADE ON UPDATE CASCADE
+)

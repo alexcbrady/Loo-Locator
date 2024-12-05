@@ -20,7 +20,7 @@
         </nav>
     </header>
     <main>
-        <h1>Building Name</h1>
+        <h1>{{ building.bname }}</h1>
         <div class="building">
             <img src="../static/placeholder.png">
             <div>
@@ -30,14 +30,25 @@
         </div>
         <h1>Bathroom</h1>
         <section class="container">
+            <!-- <div>Bathroom Placeholder</div>
             <div>Bathroom Placeholder</div>
             <div>Bathroom Placeholder</div>
             <div>Bathroom Placeholder</div>
             <div>Bathroom Placeholder</div>
             <div>Bathroom Placeholder</div>
             <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div>
+            <div>Bathroom Placeholder</div> -->
+            <table>
+                <tbody>
+                   {% for review in reviews %} 
+                   <tr>
+                    <td>
+                        {{ review.title }}
+                    </td>
+                   </tr>
+                   {% endfor %}
+                </tbody>
+            </table>
     </main>
 </body>
 </html>

@@ -98,6 +98,24 @@ def account():
     reviews = website_repository_singleton.profileReviews(session.get('user')['user_id'])
     return render_template('account.html', account=session.get('user'), reviews=reviews) 
 
+@app.route('/update_account', methods=['GET', 'POST'])
+def update_account():
+    if request.method == 'POST':
+        # Retrieve form data
+        new_username = request.form.get('username')  
+        # Update the user in the database 
+        user_id = session.get('user')['user_id']
+        website_repository_singleton.updateUser(user_id, new_username)
+
+        # Update session to reflect the new username
+        session['user']['username'] = new_username  # Corrected key name here
+
+        # Redirect or display a success message
+        return redirect('/account')  # Redirect to account page after successful update
+    
+    # Render the update account page for GET requests
+    return render_template('update_account.html')
+
 @app.get('/building')
 def building_form():
     building = website_repository_singleton.findBuilding(request.args.get('button', 'default'))

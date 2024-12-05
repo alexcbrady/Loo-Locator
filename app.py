@@ -102,7 +102,8 @@ def account():
 def building_form():
     building = website_repository_singleton.findBuilding(request.args.get('button', 'default'))
     reviews = website_repository_singleton.buildingReviews(building.building_id)
-    return render_template('building.html', building=building, reviews=reviews)
+    averageRating = website_repository_singleton.averageRating(building.building_id)
+    return render_template('building.html', building=building, reviews=reviews, averageRating=averageRating)
 
 @app.get('/review')
 def new_form():

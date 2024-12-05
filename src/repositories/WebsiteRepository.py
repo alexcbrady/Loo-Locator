@@ -58,4 +58,18 @@ class WebsiteRepository:
         foundReviews = Review.query.filter_by(building_id = building_id)
         return foundReviews
 
+    def averageRating(self, building_id):
+        foundReviews = Review.query.filter_by(building_id = building_id)
+        total = 0
+        count = 0
+        for review in foundReviews:
+            total += review.rating
+            count += 1
+        if (count == 0):
+            return "test"
+        else:
+            average = total/count
+        return average
+            
+
 website_repository_singleton = WebsiteRepository()

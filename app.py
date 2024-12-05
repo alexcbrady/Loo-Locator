@@ -57,7 +57,10 @@ def login():
 
     #if login returns something, redirect to main page
     #needs additional work to set the logined user to be "active"
-    if (website_repository_singleton.signin(username, password)):
+    user = website_repository_singleton.signin(username, password)
+    if (user):
+        #serializes the found user into the session
+        session['user'] = user.as_dict()
         return redirect('/main')
     #otherwise, redirect back to singin page to try again
     else:
@@ -79,7 +82,8 @@ def signup():
     if (website_repository_singleton.findUser(username, email) == None):
         #add user to db, then redirect to main page
         #needs additional work to set the registerd user to be "active"
-        website_repository_singleton.signup(username, email, password)
+        newUser = website_repository_singleton.signup(username, email, password)
+        session['user'] = newUser.as_dict()
         return redirect('/main')
     #otherwise redirect back to signup page
     return redirect('/signup')
@@ -89,8 +93,11 @@ def logout():
     session.clear()  # Clear all session data
     return redirect('/')
 
+@app.get('/account')
+def account():
+   return render_template('account.html', account=session.get('user')) 
+
 @app.get('/building')
 def building_form():
     building = website_repository_singleton.findBuilding(request.args.get('button', 'default'))
-    print(building)
     return render_template('building.html', building=building)

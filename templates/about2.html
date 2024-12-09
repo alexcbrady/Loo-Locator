@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/buildingstyles.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="../static/about2styles.css">
+    <title>Loo Locator</title>
     <style>
         /* Style for the dropdown container */
         .dropdown {
@@ -40,54 +40,39 @@
     </style>
 </head>
 <body>
+    
     <header>
-        <img src="../static/LooLocator2.png">
+        <a href="index.html"><img src="../static/LooLocator2.png"></a>
         <nav>
             <ul>
-                <li><a>Home</a></li>
+                <li><a href="main.html">Home</a></li>
                 <li>|</li>
-                <li><a>About</a></li>
+                <li><a href="about2.html">About</a></li>
                 <li>|</li>
-                <li><a href="account.html" class="button">Account</a></li>
+                <li class="dropdown">
+                    <a class="button" id="accountButton">Account</a>
+                    <div class="dropdown-content">
+                        <a href="{{ url_for('account') }}">Manage Account</a>
+                        <a href="{{ url_for('logout') }}">Logout</a>
+                    </div>
+                </li>
             </ul>
         </nav>
     </header>
-    <main>
-        <h1>{{ building.bname }}</h1>
-        <div class="building">
-            <img src="../static/placeholder.png">
-            <div>
-                <h2>Average Bathroom Rating: NA/5</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat voluptatum molestiae error aperiam reprehenderit reiciendis perferendis a sed facere minus.</p>
-            </div>
-        </div>
-        <h1>Bathroom</h1>
-        <section class="container">
-            <!-- <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div> -->
-            <div>
-                <table>
-                    <tbody>
-                       {% for review in reviews %} 
-                       <tr>
-                        <td>
-                            {{ review.title }}
-                        </td>
-                       </tr>
-                       {% endfor %}
-                    </tbody>
-                </table>
+
+    <div class="hero-container">
+        <div class="hero">
+            <img src="../static/LooLocator.png">
+            <div class="hero-text">
+                <h1>About us</h1>
+                <p>At Loo Locator, we believe that comfort and cleanliness shouldn’t be a gamble. Our mission is to help students navigate campus life with ease by providing a platform to discover the best-rated bathrooms around. Whether you’re in a rush between classes or just looking for a comfortable place to freshen up, Loo Locator is your go-to guide for bathroom quality, cleanliness, and accessibility—rated by fellow students who’ve been there. Say goodbye to unpleasant surprises and hello to better bathroom breaks, because your comfort is our priority.</p>       
+                
             </div>
             
-    </main>
-
-
+        </div>
+    </div>
+    
+        
     <script>
         // Get the Account button and dropdown menu
         const accountButton = document.getElementById('accountButton');

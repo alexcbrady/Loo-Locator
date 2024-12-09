@@ -44,6 +44,7 @@ a:hover{
     color: rgb(207, 207, 207);
 }
 
+
 main{
     display: flex;
     width: 100%;
@@ -61,9 +62,14 @@ main h1{
 .button{
     background-color: #005035;
     padding: 10px 20px;
+    border-style: none;
     border-radius: 10px;
     text-decoration: none;
+    font-size: large;
     color: white;
+}
+.button:hover{
+    background-color: #517c6d;
 }
 
 .review{
@@ -71,22 +77,54 @@ main h1{
     width: 30%;
     padding: 40px;
     margin: 0 auto;
-    text-align: center;
     border-radius: 20px;
     box-shadow: 1px 2px 2px 2px rgb(192, 192, 192);
+    font-size: larger;
 }
 .review label{
     font-weight: bold;
+    width: 30%;
     margin: 10px;
 }
 .review input{
     text-align: center;
     padding: 5px;
-    width: 40%;
+    width: 70%;
     border-radius: 10px;
+    font-size: large;
 }
 .review textarea{
     padding: 5px;
-    width: 40%;
+    width: 70%;
+    max-height: 300px;
+    max-width: 70%;
     border-radius: 10px;
+    font-size: large;
+}
+.review select{
+    padding: 5px;
+    width: 70%;
+    border-style: groove;
+    border-radius: 10px;
+    font-size: large;
+}
+
+.review div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.reviewbtn{
+    background-color: goldenrod;
+    padding: 10px 20px;
+    border-style: none;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: large;
+    color: white;
+}
+.reviewbtn:hover{
+    background-color: gold;
 }

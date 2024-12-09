@@ -1,0 +1,103 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+}
+body{
+    background-color: #005035;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+header{
+    padding: 0px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header img{
+    width: 200px;
+}
+nav{
+    width: 30%;
+}
+nav ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav ul li{
+    list-style: none;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    color: rgb(170, 170, 170);
+}
+
+.button{
+    background-color: #005035;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+section{
+    padding: 10px;
+    background-color: white;
+    border-radius: 20px;
+    width: 80%;
+    height: 85%;
+    box-shadow: 3px 4px 4px 3px black;
+}
+section h1{
+    text-align: center;
+    padding: 20px;
+    font-size: 40px;
+}
+
+.testcontainer{
+    overflow-y: auto;
+    height: 80%;
+}
+.testcontainer::-webkit-scrollbar{
+    display: none;
+}
+
+.testimonials{
+    width: 70%;
+    margin: 0 auto;
+    padding: 30px;
+}
+#stars{
+    font-size: 50px;
+    color: gold;
+    padding: 0;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+}
+.testimonials p{
+    padding: 10px;
+    font-size: 25px;
+}
+.testimonials h2{
+    font-size: 25px;
+}
+
+hr{
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+

@@ -48,7 +48,13 @@
                 <li>|</li>
                 <li><a>About</a></li>
                 <li>|</li>
-                <li><a href="account.html" class="button">Account</a></li>
+                <li class="dropdown">
+                    <a class="button" id="accountButton">Account</a>
+                    <div class="dropdown-content">
+                        <a href="{{ url_for('account') }}">Manage Account</a>
+                        <a href="{{ url_for('logout') }}">Logout</a>
+                    </div>
+                </li>
             </ul>
         </nav>
     </header>

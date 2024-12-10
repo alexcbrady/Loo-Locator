@@ -60,46 +60,50 @@
     </header>
     <main>
         <div>
-        <h1>Submit a Review</h1>
-        <form action="/review" method="post" class="review">
-            <!-- Review Title -->
-             <div>
-                <label for="review-title">Review Title:</label>
-                <input type="text" id="review-title" name="review_title" required>
-             </div>
+        <h1>View a Review</h1>
+        <form action="/account" method="get" class="review">
 
-            <!-- Building (display only) -->
-             <div>
-                <label for="review-building">Building:</label>
-                <select id="review-building" name="review_building" required>
-                    <option value="" disabled selected>Select a building</option>
-                    <option value="Woodward Hall">Woodward Hall</option>
-                    <option value="Fretwell">Fretwell</option>
-                    <option value="J. Murrey Atkins Library">J. Murrey Atkins Library</option>
-                </select>
-             </div>
+        <!-- Review Title (Non-editable) -->
+        <div>
+            <label for="review-title">Review Title:</label>
+            <input type="text" id="review-title" name="review_title" value="{{ review.title }}" readonly>
+        </div>
 
-            <!-- Rating -->
-             <div>
-                <label for="review-rating">Rating (1 to 5):</label>
-                <select id="review-rating" name="review_rating" required>
-                    <option value="" disabled selected>Select a number</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-             </div>
+        <!-- Building (Non-editable Dropdown) -->
+        <div>
+            <label for="review-building">Building:</label>
+            <select id="review-building" name="review_building" disabled>
+                <option value="Woodward Hall" {% if review.building == 'Woodward Hall' %}selected{% endif %}>Woodward Hall</option>
+                <option value="Fretwell" {% if review.building == 'Fretwell' %}selected{% endif %}>Fretwell</option>
+                <option value="J. Murrey Atkins Library" {% if review.building == 'J. Murrey Atkins Library' %}selected{% endif %}>J. Murrey Atkins Library</option>
+            </select>
+            <!-- Use a hidden input to ensure the data gets submitted -->
+            <input type="hidden" name="review_building" value="{{ review_building }}">
+        </div>
 
-            <!-- Review Body -->
-             <div>
-                <label for="review-body">Review Body:</label>
-                <textarea id="review-body" name="review_body" rows="5" cols="30" required></textarea>
-             </div>
+        <!-- Rating (Non-editable Dropdown) -->
+        <div>
+            <label for="review-rating">Rating (1 to 5):</label>
+            <select id="review-rating" name="review_rating" disabled>
+                <option value="1" {% if review.rating == '1' %}selected{% endif %}>1</option>
+                <option value="2" {% if review.rating == '2' %}selected{% endif %}>2</option>
+                <option value="3" {% if review.rating == '3' %}selected{% endif %}>3</option>
+                <option value="4" {% if review.rating == '4' %}selected{% endif %}>4</option>
+                <option value="5" {% if review.rating == '5' %}selected{% endif %}>5</option>
+            </select>
+            <!-- Use a hidden input to ensure the data gets submitted -->
+            <input type="hidden" name="review_rating" value="{{ review_rating }}">
+        </div>
+
+        <!-- Review Body (Non-editable) -->
+        <div>
+            <label for="review-body">Review Body:</label>
+            <textarea id="review-body" name="review_body" rows="5" cols="30" readonly>{{ review.body }}</textarea>
+        </div>
+
 
             <!-- Submit Button -->
-            <button class="reviewbtn" type="submit">Submit</button>
+            <button class="reviewbtn" type="submit">Exit</button>
         </form>
     </main>
     

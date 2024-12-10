@@ -134,3 +134,8 @@ def about2_form():
 @app.get('/testimonial')
 def testimonial_form():
     return render_template('testimonial.html')
+
+@app.get('/review/<int:review_id>')
+def view_form(review_id):
+    review = website_repository_singleton.viewReview(review_id=review_id)
+    return render_template('viewReview.html', review=review)

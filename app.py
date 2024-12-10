@@ -122,3 +122,15 @@ def new():
     website_repository_singleton.newReview(title, body, rating, user_id, building_id) 
 
     return redirect('/main')
+
+@app.get('/about')
+def about_form():
+    return render_template('about.html')
+ 
+@app.get('/about2')
+def about2_form():
+    return render_template('about2.html')
+
+@app.get('/testimonial')
+def testimonial_form():
+    return render_template('testimonial.html')

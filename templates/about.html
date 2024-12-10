@@ -15,9 +15,9 @@
             <a href="index.html"><img src="../static/LooLocator2.png"></a>
             <nav>
                 <ul>
-                    <li><a href="about.html">About</a></li>
+                    <li><a href="{{ url_for('about_form') }}">About</a></li>
                     <li>|</li>
-                    <li><a href="testimonial.html">Testimonial</a></li>
+                    <li><a href="{{ url_for('testimonial_form') }}">Testimonial</a></li>
                     <li>|</li>
                     <li>
                         <form action = '/signin' method = 'get'>

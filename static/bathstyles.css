@@ -5,6 +5,7 @@
 }
 body{
     background-color: #e6e6e6;
+    padding-bottom: 40px;
 }
 
 header{
@@ -31,7 +32,7 @@ nav ul{
 }
 
 nav ul li{
-    list-style: none;   
+    list-style: none;
 }
 
 nav ul li a{
@@ -43,35 +44,46 @@ a:hover{
     color: rgb(207, 207, 207);
 }
 
-section{
-    padding: 22px 0px;
+main{
     display: flex;
+    width: 100%;
+    margin: 0px auto;
     flex-direction: column;
+    justify-content: center;
+
 }
 
-.profile{
+.bathroom{
     display: flex;
+    padding: 20px;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
-    padding-bottom: 30px;
-    width: 30%;
+}
+.bathroom div{
+    width: 40%;
+    padding: 50px;
 }
 
-.profile img{
-    background-color: #ffffff;
-    border-radius: 100%;
-    box-shadow: 1px 3px 3px 3px rgb(192, 192, 192);
-    min-width: 250px;
-    max-width: 250px;
+.bathroom div h2{
+    padding: 20px;
 }
-
-.pInfo {
-    text-align: center;
-    min-width: 300px;
-}
-.profile div p{
+.bathroom div p{
     font-size: 20px;
+}
+
+main img{
+    width: 300px;
+    padding:  0px 20px;
+}
+
+h1{
+    text-align: center;
+    padding: 0px 0px 10px 0px;
+}
+
+main h1{
+    text-align: center;
+    padding: 10px 0px 0px 0px;
 }
 
 .button{
@@ -81,6 +93,7 @@ section{
     text-decoration: none;
     color: white;
 }
+
 #btn{
     background-color: goldenrod;
     padding: 10px 20px;

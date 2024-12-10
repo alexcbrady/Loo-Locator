@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+body{
+    background-color: #e6e6e6;
+    padding-bottom: 40px;
+}
+
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0px auto;
+    background-color: #ffffff;
+    position: sticky;
+    top: 0;
+    box-shadow: 1px 2px 0px 0px rgb(192, 192, 192);
+}
+header img{
+    width: 200px;
+}
+nav{
+    width: 30%;
+    min-width: 350px;
+}
+nav ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav ul li{
+    list-style: none;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    color: rgb(207, 207, 207);
+}
+
+
+main{
+    display: flex;
+    width: 100%;
+    margin: 0px auto;
+    flex-direction: column;
+    justify-content: center;
+    height: 70vh;
+
+}
+main h1{
+    text-align: center;
+    padding: 40px;
+}
+
+.button{
+    background-color: #005035;
+    padding: 10px 20px;
+    border-style: none;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: large;
+    color: white;
+}
+.button:hover{
+    background-color: #517c6d;
+}
+
+.review{
+    background-color: white;
+    width: 30%;
+    padding: 40px;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 1px 2px 2px 2px rgb(192, 192, 192);
+    font-size: larger;
+}
+.review label{
+    font-weight: bold;
+    width: 30%;
+    margin: 10px;
+}
+.review input{
+    text-align: center;
+    padding: 5px;
+    width: 70%;
+    border-radius: 10px;
+    font-size: large;
+}
+.review textarea{
+    padding: 5px;
+    width: 70%;
+    max-height: 300px;
+    max-width: 70%;
+    border-radius: 10px;
+    font-size: large;
+}
+.review select{
+    padding: 5px;
+    width: 70%;
+    border-style: groove;
+    border-radius: 10px;
+    font-size: large;
+}
+
+.review div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.reviewbtn{
+    background-color: goldenrod;
+    padding: 10px 20px;
+    border-style: none;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: large;
+    color: white;
+}
+.reviewbtn:hover{
+    background-color: gold;
+}

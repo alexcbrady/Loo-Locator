@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/accountstyles.css">
+    <link rel="stylesheet" href="../static/bathstyles.css">
     <title>Document</title>
     <style>
         /* Style for the dropdown container */
@@ -48,8 +48,6 @@
                 <li>|</li>
                 <li><a>About</a></li>
                 <li>|</li>
-                <li><a>Testimonial</a></li>
-                <li>|</li>
                 <li class="dropdown">
                     <a class="button" id="accountButton">Account</a>
                     <div class="dropdown-content">
@@ -60,22 +58,17 @@
             </ul>
         </nav>
     </header>
-    <section>
-        <div class="profile">
-            <img src="../static/profile.png">
-            <div class="pInfo">
-                    <h2 style="display: inline-block;">E-mail: </h2><p style="display: inline-block; padding-left: 10px;">{{ account.email }}</p>
-                    <br>
-                    <h2 style="display: inline-block;">Username: </h2><p style="display: inline-block; padding-left: 10px;">{{ account.usern }}</p>
-                    <br>
-                    <h2 style="display: inline-block;">Password: </h2><p style="display: inline-block; padding-left: 10px;">*******</p>
-                    <br>
-                    <form action = '/login' method = 'get' style="margin-top: 20px;">
-                        <a class="button">Update</a>
-                    </form>  
+    <main>
+        <h1>{{  }}</h1>
+        <div class="bathroom">
+            <img src="../static/LooLocator.png">
+            <div>
+                <h2>Average Bathroom Rating: NA/5</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat voluptatum molestiae error aperiam reprehenderit reiciendis perferendis a sed facere minus.</p>
             </div>
         </div>
-        <h1>Reviews</h1>
+    </main>
+    <h1>Reviews</h1>
         <div class="reviews">
             <!-- <div class="review">
                 <h2>Lorem ipsum dolor sit amet.</h2>
@@ -116,27 +109,27 @@
                     </table>
                 </div>
 
-                <a id="btn">Edit</a>
+                <a id="btn">View</a>
             </div>
             
         </div>
-    </section>
-    <script>
-        // Get the Account button and dropdown menu
-        const accountButton = document.getElementById('accountButton');
-        const dropdown = accountButton.parentElement;
 
-        // Toggle dropdown visibility on button click
-        accountButton.addEventListener('click', () => {
-            dropdown.classList.toggle('active');
-        });
-
-        // Close the dropdown if clicking outside
-        window.addEventListener('click', (event) => {
-            if (!dropdown.contains(event.target)) {
-                dropdown.classList.remove('active');
-            }
-        });
-    </script>
+        <script>
+            // Get the Account button and dropdown menu
+            const accountButton = document.getElementById('accountButton');
+            const dropdown = accountButton.parentElement;
+    
+            // Toggle dropdown visibility on button click
+            accountButton.addEventListener('click', () => {
+                dropdown.classList.toggle('active');
+            });
+    
+            // Close the dropdown if clicking outside
+            window.addEventListener('click', (event) => {
+                if (!dropdown.contains(event.target)) {
+                    dropdown.classList.remove('active');
+                }
+            });
+        </script>
 </body>
 </html>

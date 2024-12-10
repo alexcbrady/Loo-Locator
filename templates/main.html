@@ -61,12 +61,16 @@
         </nav>
     </header>
     <main>
-        <img src="https://maps.googleapis.com/maps/api/staticmap?center=University+of+North+Carolina+at+Charlotte&zoom=15&size=1216x2337&scale=2={{ MARKERS }}&key={{ API_KEY }}">
+    <!-- <img src="https://maps.googleapis.com/maps/api/staticmap?center=University+of+North+Carolina+at+Charlotte&zoom=15&size=1216x2337&scale=2={{ MARKERS }}&key={{ API_KEY }}"> -->
+        <img src="../static/LooLocator2.png">
+        <input id="search" type="text" placeholder="Search Buildings">
+        <h1>Your guide to campus comfort.</h1>
+        
         <form action="/building", method="GET">
-            <button name="button", value="Woodward Hall">Woodward</button>
+            <button class="buildingbtn" name="button", value="Woodward Hall">Woodward</button>
         </form>
         <form action="/review", method="GET">
-            <button type="submit">New Review</button>
+            <button class="reviewbtn" type="submit">New Review</button>
         </form>
     </main>
     <script>

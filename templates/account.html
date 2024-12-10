@@ -64,61 +64,35 @@
         <div class="profile">
             <img src="../static/profile.png">
             <div class="pInfo">
-                    <h2 style="display: inline-block;">E-mail: </h2><p style="display: inline-block; padding-left: 10px;">{{ account.email }}</p>
-                    <br>
-                    <h2 style="display: inline-block;">Username: </h2><p style="display: inline-block; padding-left: 10px;">{{ account.usern }}</p>
-                    <br>
-                    <h2 style="display: inline-block;">Password: </h2><p style="display: inline-block; padding-left: 10px;">*******</p>
-                    <br>
-                    <form action = '/login' method = 'get' style="margin-top: 20px;">
-                        <a class="button">Update</a>
-                    </form>  
+                <h2 style="display: inline-block;">E-mail: </h2><p style="display: inline-block; padding-left: 10px;">{{ account.email }}</p>
+                <br>
+                <h2 style="display: inline-block;">Username: </h2><p style="display: inline-block; padding-left: 10px;">{{ account.usern }}</p>
+                <br>
+                <h2 style="display: inline-block;">Password: </h2><p style="display: inline-block; padding-left: 10px;">*******</p>
+                <br>
+                <form action = '/login' method = 'get' style="margin-top: 20px;">
+                    <a class="button">Update</a>
+                </form>  
             </div>
         </div>
         <h1>Reviews</h1>
         <div class="reviews">
-            <!-- <div class="review">
-                <h2>Lorem ipsum dolor sit amet.</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse ab eius, aperiam dolor nulla dicta autem eos accusantium, excepturi iure voluptas in aspernatur. Temporibus, reiciendis accusantium explicabo alias tenetur saepe eaque, nihil totam numquam perferendis aliquid ratione sapiente libero perspiciatis.</p>
-            </div>
-            <div class="review">
-                <h2>Lorem ipsum dolor sit amet.</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse ab eius, aperiam dolor nulla dicta autem eos accusantium, excepturi iure voluptas in aspernatur. Temporibus, reiciendis accusantium explicabo alias tenetur saepe eaque, nihil totam numquam perferendis aliquid ratione sapiente libero perspiciatis.</p>
-            </div>
-            <div class="review">
-                <h2>Lorem ipsum dolor sit amet.</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse ab eius, aperiam dolor nulla dicta autem eos accusantium, excepturi iure voluptas in aspernatur. Temporibus, reiciendis accusantium explicabo alias tenetur saepe eaque, nihil totam numquam perferendis aliquid ratione sapiente libero perspiciatis.</p>
-            </div>
-            <div class="review">
-                <h2>Lorem ipsum dolor sit amet.</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse ab eius, aperiam dolor nulla dicta autem eos accusantium, excepturi iure voluptas in aspernatur. Temporibus, reiciendis accusantium explicabo alias tenetur saepe eaque, nihil totam numquam perferendis aliquid ratione sapiente libero perspiciatis.</p>
-            </div>
-            <div class="review">
-                <h2>Lorem ipsum dolor sit amet.</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse ab eius, aperiam dolor nulla dicta autem eos accusantium, excepturi iure voluptas in aspernatur. Temporibus, reiciendis accusantium explicabo alias tenetur saepe eaque, nihil totam numquam perferendis aliquid ratione sapiente libero perspiciatis.</p>
-            </div>
-            <div class="review">
-                <h2>Lorem ipsum dolor sit amet.</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse ab eius, aperiam dolor nulla dicta autem eos accusantium, excepturi iure voluptas in aspernatur. Temporibus, reiciendis accusantium explicabo alias tenetur saepe eaque, nihil totam numquam perferendis aliquid ratione sapiente libero perspiciatis.</p>
-            </div> -->
-            <div class="review">
+            <div>
                 <div>
                     <table>
                         <tbody>
-                           {% for review in reviews %} 
-                           <tr>
-                            <td>
-                                {{ review.title }}
-                            </td>
-                           </tr>
-                           {% endfor %}
+                            {% for review in reviews %} 
+                            <tr>
+                                <td class = "review">
+                                    {{ review.title }}
+                                    <a id="btn">Edit</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>
-
-                <a id="btn">Edit</a>
             </div>
-            
         </div>
     </section>
     <script>

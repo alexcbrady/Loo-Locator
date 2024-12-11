@@ -151,7 +151,6 @@ def edit_form(review_id):
 
 @app.post('/review/<int:review_id>/edit')
 def edit(review_id):
-    print(review_id)
     title = request.form.get('review_title')
     body = request.form.get('review_body')
     rating = request.form.get('review_rating')

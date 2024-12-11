@@ -53,6 +53,7 @@ class WebsiteRepository:
         foundReview.rating = rating
         foundReview.user_id = user_id
         foundReview.building_id = building_id
+        db.session.flush()
         db.session.commit()
         return None 
 

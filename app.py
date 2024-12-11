@@ -17,16 +17,6 @@ load_dotenv()
 DB_PASSWORD = os.getenv('DB_PASSWORD')
 API_KEY = os.getenv('API_KEY')
 
-MARKERS_DICT = {
-    'WOODWARD': '&markers=color:green%7Clabel:W%7CWoodward+Hall,+Charlotte,+NC',
-    'FRETWELL': '&markers=color:green%7Clabel:F%7CFretwell,+Charlotte,+NC',
-    'LIBRARY': '&markers=color:green%7Clabel:L%7CJ.+Murrey+Atkins+Library'
-}
-
-MARKERS = ''
-for key in MARKERS_DICT:
-    MARKERS += MARKERS_DICT[key]
-
 app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql://root:{DB_PASSWORD}@localhost:3306/loodb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -43,7 +33,7 @@ def index_form():
 
 @app.get('/main')
 def main_form():
-    return render_template('main.html',API_KEY=API_KEY,MARKERS=MARKERS)
+    return render_template('main.html',API_KEY=API_KEY)
 
 @app.get('/signin')
 def login_form():

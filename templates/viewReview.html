@@ -73,9 +73,9 @@
         <div>
             <label for="review-building">Building:</label>
             <select id="review-building" name="review_building" disabled>
-                <option value="Woodward Hall" {% if review.building == 'Woodward Hall' %}selected{% endif %}>Woodward Hall</option>
-                <option value="Fretwell" {% if review.building == 'Fretwell' %}selected{% endif %}>Fretwell</option>
-                <option value="J. Murrey Atkins Library" {% if review.building == 'J. Murrey Atkins Library' %}selected{% endif %}>J. Murrey Atkins Library</option>
+                <option value="Woodward Hall" {% if review.building_id == 1 %}selected{% endif %}>Woodward Hall</option>
+                <option value="Fretwell" {% if review.building_id == 2 %}selected{% endif %}>Fretwell</option>
+                <option value="J. Murrey Atkins Library" {% if review.building == 3 %}selected{% endif %}>J. Murrey Atkins Library</option>
             </select>
             <!-- Use a hidden input to ensure the data gets submitted -->
             <input type="hidden" name="review_building" value="{{ review_building }}">
@@ -85,11 +85,11 @@
         <div>
             <label for="review-rating">Rating (1 to 5):</label>
             <select id="review-rating" name="review_rating" disabled>
-                <option value="1" {% if review.rating == '1' %}selected{% endif %}>1</option>
-                <option value="2" {% if review.rating == '2' %}selected{% endif %}>2</option>
-                <option value="3" {% if review.rating == '3' %}selected{% endif %}>3</option>
-                <option value="4" {% if review.rating == '4' %}selected{% endif %}>4</option>
-                <option value="5" {% if review.rating == '5' %}selected{% endif %}>5</option>
+                <option value="1" {% if review.rating == 1 %}selected{% endif %}>1</option>
+                <option value="2" {% if review.rating == 2 %}selected{% endif %}>2</option>
+                <option value="3" {% if review.rating == 3 %}selected{% endif %}>3</option>
+                <option value="4" {% if review.rating == 4 %}selected{% endif %}>4</option>
+                <option value="5" {% if review.rating == 5 %}selected{% endif %}>5</option>
             </select>
             <!-- Use a hidden input to ensure the data gets submitted -->
             <input type="hidden" name="review_rating" value="{{ review_rating }}">

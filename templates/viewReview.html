@@ -104,6 +104,9 @@
 
             <!-- Submit Button -->
             <button class="reviewbtn" type="submit">Exit</button>
+            {% if editable %}
+                <button class="reviewbtn" type="button" onclick="window.location.href='/review/{{ review.review_id }}/edit';">Edit</button>
+            {% endif %}
         </form>
     </main>
     

@@ -109,3 +109,19 @@ main h1{
     text-align: center;
     box-shadow: 1px 2px 2px 2px rgb(192, 192, 192);
 }
+
+.review-container {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#btn{
+    background-color: goldenrod;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}

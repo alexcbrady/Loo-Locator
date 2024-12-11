@@ -46,6 +46,16 @@ class WebsiteRepository:
         db.session.commit()
         return None
 
+    def editReview(self, title, body, rating, user_id, building_id, review_id):
+        foundReview = Review.query.filter_by(review_id = review_id).first()
+        foundReview.title = title
+        foundReview.body = body
+        foundReview.rating = rating
+        foundReview.user_id = user_id
+        foundReview.building_id = building_id
+        db.session.commit()
+        return None 
+
     def viewReview(self, review_id):
         foundReview = Review.query.filter_by(review_id = review_id).first()
         return foundReview

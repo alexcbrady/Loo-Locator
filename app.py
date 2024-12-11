@@ -138,4 +138,28 @@ def testimonial_form():
 @app.get('/review/<int:review_id>')
 def view_form(review_id):
     review = website_repository_singleton.viewReview(review_id=review_id)
-    return render_template('viewReview.html', review=review)
+    if review.user_id == session.get('user')['user_id']:
+        editable = True
+    else:
+        editable = False
+    return render_template('viewReview.html', review=review, editable=editable)
+
+@app.get('/review/<int:review_id>/edit')
+def edit_form(review_id):
+    review = website_repository_singleton.viewReview(review_id=review_id)
+    return render_template('review.html', review=review)
+
+@app.post('/review/<int:review_id>/edit')
+def edit(review_id):
+    print(review_id)
+    title = request.form.get('review_title')
+    body = request.form.get('review_body')
+    rating = request.form.get('review_rating')
+    building = request.form.get('review_building')
+
+    building_id = website_repository_singleton.findBuilding(building).building_id
+    user_id = website_repository_singleton.findUser(session.get('user')['usern'], session.get('user')['email']).user_id
+
+    website_repository_singleton.editReview(title, body, rating, user_id, building_id, review_id) 
+
+    return redirect('/main')

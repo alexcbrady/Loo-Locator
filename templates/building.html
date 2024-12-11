@@ -69,28 +69,13 @@
         </div>
         <h1>Bathroom</h1>
         <section class="container">
-            <!-- <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div>
-            <div>Bathroom Placeholder</div> -->
-            <div>
-                <table>
-                    <tbody>
-                       {% for review in reviews %} 
-                       <tr>
-                        <td>
-                            {{ review.title }}
-                        </td>
-                       </tr>
-                       {% endfor %}
-                    </tbody>
-                </table>
+            {% for review in reviews %} 
+            <div class="review-container">
+                <h3>{{ review.title }}</h3>
+                <a href="/review/{{review.review_id}}", id="btn">View</a>
             </div>
-            
+            {% endfor %}
+        </section>
     </main>
 
 

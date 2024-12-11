@@ -63,41 +63,40 @@
         <h1>Submit a Review</h1>
         <form action="/review" method="post" class="review">
             <!-- Review Title -->
-             <div>
+            <div>
                 <label for="review-title">Review Title:</label>
-                <input type="text" id="review-title" name="review_title" required>
-             </div>
-
+                <input type="text" id="review-title" name="review_title" 
+                       value="{{ review.title if review else '' }}" required>
+            </div>
+        
             <!-- Building (display only) -->
-             <div>
+            <div>
                 <label for="review-building">Building:</label>
                 <select id="review-building" name="review_building" required>
-                    <option value="" disabled selected>Select a building</option>
-                    <option value="Woodward Hall">Woodward Hall</option>
-                    <option value="Fretwell">Fretwell</option>
-                    <option value="J. Murrey Atkins Library">J. Murrey Atkins Library</option>
+                    <option value="" disabled {{ 'selected' if not review else '' }}>Select a building</option>
+                    <option value="Woodward Hall" {{ 'selected' if review and review.building == 'Woodward Hall' else '' }}>Woodward Hall</option>
+                    <option value="Fretwell" {{ 'selected' if review and review.building == 'Fretwell' else '' }}>Fretwell</option>
+                    <option value="J. Murrey Atkins Library" {{ 'selected' if review and review.building == 'J. Murrey Atkins Library' else '' }}>J. Murrey Atkins Library</option>
                 </select>
-             </div>
-
+            </div>
+        
             <!-- Rating -->
-             <div>
+            <div>
                 <label for="review-rating">Rating (1 to 5):</label>
                 <select id="review-rating" name="review_rating" required>
-                    <option value="" disabled selected>Select a number</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
+                    <option value="" disabled {{ 'selected' if not review else '' }}>Select a number</option>
+                    {% for rating in range(1, 6) %}
+                    <option value="{{ rating }}" {{ 'selected' if review and review.rating == rating else '' }}>{{ rating }}</option>
+                    {% endfor %}
                 </select>
-             </div>
-
+            </div>
+        
             <!-- Review Body -->
-             <div>
+            <div>
                 <label for="review-body">Review Body:</label>
-                <textarea id="review-body" name="review_body" rows="5" cols="30" required></textarea>
-             </div>
-
+                <textarea id="review-body" name="review_body" rows="5" cols="30" required>{{ review.body if review else '' }}</textarea>
+            </div>
+        
             <!-- Submit Button -->
             <button class="reviewbtn" type="submit">Submit</button>
         </form>

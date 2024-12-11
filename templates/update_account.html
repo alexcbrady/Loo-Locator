@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Account</title>
+    <link rel="stylesheet" href="../static/accountstyles.css">
+</head>
+<body>
+    <section>
+        <h1>Update Account Information</h1>
+        <form action="/update_account" method="POST">
+            <label for="username">New Username:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">New Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Save Changes</button>
+        </form>
+    </section>
+</body>
+</html>

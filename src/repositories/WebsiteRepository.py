@@ -64,6 +64,17 @@ class WebsiteRepository:
     def profileReviews(self, user_id):
         foundReviews = Review.query.filter_by(user_id = user_id)
         return foundReviews
+    
+    def updateUser(self, user_id, new_username):
+        user = self.findUserById(user_id)  
+        if user:
+            user.usern = new_username
+        db.session.commit()  # Saves changes to the database
+
+    def findUserById(self, user_id):
+        foundUser = User.query.filter_by( user_id = user_id).first()
+        return foundUser
+
 
     def buildingReviews(self, building_id):
         foundReviews = Review.query.filter_by(building_id = building_id)

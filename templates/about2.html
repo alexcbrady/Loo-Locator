@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/mainstyles.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="../static/about2styles.css">
+    <title>Loo Locator</title>
     <style>
         /* Style for the dropdown container */
         .dropdown {
@@ -40,15 +40,14 @@
     </style>
 </head>
 <body>
+    
     <header>
-        <img src="../static/LooLocator2.png">
+        <a href="index.html"><img src="../static/LooLocator2.png"></a>
         <nav>
             <ul>
                 <li><a href="{{ url_for('main_form') }}">Home</a></li>
                 <li>|</li>
-                <li><a href="{{ url_for('about_form') }}">About</a></li>
-                <li>|</li>
-                <li><a href="{{ url_for('testimonial_form') }}">Testimonial</a></li>
+                <li><a href="{{ url_for('about2_form') }}">About</a></li>
                 <li>|</li>
                 <li class="dropdown">
                     <a class="button" id="accountButton">Account</a>
@@ -60,20 +59,20 @@
             </ul>
         </nav>
     </header>
-    <main>
-        <img src="../static/LooLocator2.png">
-        <input id="search" type="text" placeholder="Search Buildings">
-        <h1>Your guide to campus comfort.</h1>
+
+    <div class="hero-container">
+        <div class="hero">
+            <img src="../static/LooLocator.png">
+            <div class="hero-text">
+                <h1>About us</h1>
+                <p>At Loo Locator, we believe that comfort and cleanliness shouldn’t be a gamble. Our mission is to help students navigate campus life with ease by providing a platform to discover the best-rated bathrooms around. Whether you’re in a rush between classes or just looking for a comfortable place to freshen up, Loo Locator is your go-to guide for bathroom quality, cleanliness, and accessibility—rated by fellow students who’ve been there. Say goodbye to unpleasant surprises and hello to better bathroom breaks, because your comfort is our priority.</p>       
+                
+            </div>
+            
+        </div>
+    </div>
+    
         
-        <form action="/building", method="GET">
-            <button class="buildingbtn" name="button", value="Woodward Hall">Woodward</button>
-            <button class="buildingbtn" name="button", value="Fretwell">Fretwell</button>
-            <button class="buildingbtn" name="button", value="J. Murrey Atkins Library">J. Murrey Atkins Library</button>
-        </form>
-        <form action="/review", method="GET">
-            <button class="reviewbtn" type="submit">New Review</button>
-        </form>
-    </main>
     <script>
         // Get the Account button and dropdown menu
         const accountButton = document.getElementById('accountButton');

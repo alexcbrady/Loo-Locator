@@ -53,21 +53,21 @@ main{
 
 }
 
-.building{
+.bathroom{
     display: flex;
     padding: 20px;
     justify-content: center;
     align-items: center;
 }
-.building div{
+.bathroom div{
     width: 40%;
     padding: 50px;
 }
 
-.building div h2{
+.bathroom div h2{
     padding: 20px;
 }
-.building div p{
+.bathroom div p{
     font-size: 20px;
 }
 
@@ -76,9 +76,14 @@ main img{
     padding:  0px 20px;
 }
 
+h1{
+    text-align: center;
+    padding: 0px 0px 10px 0px;
+}
+
 main h1{
     text-align: center;
-    padding: 30px 0px 10px 0px;
+    padding: 10px 0px 0px 0px;
 }
 
 .button{
@@ -89,34 +94,6 @@ main h1{
     color: white;
 }
 
-.container {
-    width: 90%;
-    display: grid;
-    grid-auto-columns: minmax(15rem, auto);
-    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
-    grid-gap: 2rem;
-    color: #ffffff;
-    padding: 20px 0px 0px 0px;
-    margin: 0 auto;
-    
-}
-
-.container div{
-    background-color: #005035;
-    border-radius: 20px;
-    padding: 60px;
-    font-size: 2rem;
-    text-align: center;
-    box-shadow: 1px 2px 2px 2px rgb(192, 192, 192);
-}
-
-.review-container {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
 #btn{
     background-color: goldenrod;
     padding: 10px 20px;
@@ -124,4 +101,49 @@ main h1{
     text-decoration: none;
     font-weight: bold;
     color: white;
+}
+#btn:hover{
+    color: white;
+    background-color: gold;
+}
+
+
+
+.reviews{
+    background-color: white;
+    padding: 25px 50px;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 1px 3px 3px 3px rgb(192, 192, 192);
+    height: 50vh;
+    overflow-y: auto;
+}
+.reviews::-webkit-scrollbar{
+    display: none;
+}
+
+section h1{
+    font-size: 35px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.review{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    background-color: #005035;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 1px 3px 3px 3px rgb(192, 192, 192);
+    width: 80%;
+    margin:  30px auto;
+}
+.reviews h2{
+    padding-bottom: 10px;
+}
+
+.review a:hover{
+    color: #5f776f;
 }

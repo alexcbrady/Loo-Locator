@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/teststyles.css">
+    <title>Loo Locator</title>
+</head>
+<body>
+    
+
+    <section>
+        <header>
+            <a href="index.html"><img src="../static/LooLocator2.png"></a>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('about_form') }}">About</a></li>
+                    <li>|</li>
+                    <li><a href="{{ url_for('testimonial_form') }}">Testimonial</a></li>
+                    <li>|</li>
+                    <li>
+                        <form action = '/signin' method = 'get'>
+                            <button type="submit" class="button">Sign In</button>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <h1>Testimonials</h1>
+
+        <div class="testcontainer">
+            <div class="testimonials">
+                <p id="stars">★ ★ ★ ★ ★</p>
+                <p>"I never thought I'd care so much about finding a good bathroom, but Loo Locator is a game-changer! Now I know exactly where to go between classes—clean, quiet, and stocked with paper towels. Thanks for saving my day (and my sanity)!"</p>
+                <h2>— Jamie S., Sophomore</h2>
+            </div>
+            <hr>
+            <div class="testimonials">
+                <p id="stars">★ ★ ★ ★ ★</p>
+                <p>"I used to avoid certain buildings on campus because I dreaded their bathrooms. With Loo Locator, I found hidden gems I didn’t even know existed. My favorite? The second floor of the library—quiet and always spotless!"</p>
+                <h2>— Alex P., Senior</h2>
+            </div>
+            <hr>
+            <div class="testimonials">
+                <p id="stars">★ ★ ★ ★ ★</p>
+                <p>"The ratings are spot on! I avoided a total disaster last week thanks to this app. It’s honestly my new go-to before I head out to class."</p>
+                <h2>— Taylor M., Junior</h2>
+            </div>
+            <hr>
+            <div class="testimonials">
+                <p id="stars">★ ★ ★ ★ ★</p>
+                <p>"I never thought I’d say this, but this app makes bathroom breaks... enjoyable? 10/10 recommend to anyone who values their comfort!"</p>
+                <h2>— Morgan L., Freshman</h2>
+            </div>
+            <hr>
+            <div class="testimonials">
+                <p id="stars">★ ★ ★ ★ ★</p>
+                <p>"‘Your comfort is our priority’—they’re not kidding! This app makes campus life so much easier. Every student needs Loo Locator on their phone."</p>
+                <h2>— Chris W., Grad Student</h2>
+            </div>
+        </div>
+        
+        
+    </section>
+        
+        
+    
+</body>
+</html>

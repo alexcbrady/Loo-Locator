@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/bathstyles.css">
+    <title>Document</title>
+    <style>
+        /* Style for the dropdown container */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Style for the dropdown content */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Show the dropdown content when the dropdown is active */
+        .dropdown.active .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="../static/LooLocator2.png">
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('main_form') }}">Home</a></li>
+                <li>|</li>
+                <li><a href="{{ url_for('about_form') }}">About</a></li>
+                <li>|</li>
+                <li class="dropdown">
+                    <a class="button" id="accountButton">Account</a>
+                    <div class="dropdown-content">
+                        <a href="{{ url_for('account') }}">Manage Account</a>
+                        <a href="{{ url_for('logout') }}">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>{{  }}</h1>
+        <div class="bathroom">
+            <img src="../static/LooLocator.png">
+            <div>
+                <h2>Average Bathroom Rating: NA/5</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat voluptatum molestiae error aperiam reprehenderit reiciendis perferendis a sed facere minus.</p>
+            </div>
+        </div>
+    </main>
+    <h1>Reviews</h1>
+        <div class="reviews">
+            <!-- <div class="review">
+                <h2>Lorem ipsum dolor sit amet.</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse ab eius, aperiam dolor nulla dicta autem eos accusantium, excepturi iure voluptas in aspernatur. Temporibus, reiciendis accusantium explicabo alias tenetur saepe eaque, nihil totam numquam perferendis aliquid ratione sapiente libero perspiciatis.</p>
+            </div>
+            <div class="review">
+                <h2>Lorem ipsum dolor sit amet.</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse ab eius, aperiam dolor nulla dicta autem eos accusantium, excepturi iure voluptas in aspernatur. Temporibus, reiciendis accusantium explicabo alias tenetur saepe eaque, nihil totam numquam perferendis aliquid ratione sapiente libero perspiciatis.</p>
+            </div>
+            <div class="review">
+                <h2>Lorem ipsum dolor sit amet.</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse ab eius, aperiam dolor nulla dicta autem eos accusantium, excepturi iure voluptas in aspernatur. Temporibus, reiciendis accusantium explicabo alias tenetur saepe eaque, nihil totam numquam perferendis aliquid ratione sapiente libero perspiciatis.</p>
+            </div>
+            <div class="review">
+                <h2>Lorem ipsum dolor sit amet.</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse ab eius, aperiam dolor nulla dicta autem eos accusantium, excepturi iure voluptas in aspernatur. Temporibus, reiciendis accusantium explicabo alias tenetur saepe eaque, nihil totam numquam perferendis aliquid ratione sapiente libero perspiciatis.</p>
+            </div>
+            <div class="review">
+                <h2>Lorem ipsum dolor sit amet.</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse ab eius, aperiam dolor nulla dicta autem eos accusantium, excepturi iure voluptas in aspernatur. Temporibus, reiciendis accusantium explicabo alias tenetur saepe eaque, nihil totam numquam perferendis aliquid ratione sapiente libero perspiciatis.</p>
+            </div>
+            <div class="review">
+                <h2>Lorem ipsum dolor sit amet.</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse ab eius, aperiam dolor nulla dicta autem eos accusantium, excepturi iure voluptas in aspernatur. Temporibus, reiciendis accusantium explicabo alias tenetur saepe eaque, nihil totam numquam perferendis aliquid ratione sapiente libero perspiciatis.</p>
+            </div> -->
+            <div class="review">
+                <div>
+                    <table>
+                        <tbody>
+                           {% for review in reviews %} 
+                           <tr>
+                            <td>
+                                {{ review.title }}
+                            </td>
+                           </tr>
+                           {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <a id="btn">View</a>
+            </div>
+            
+        </div>
+
+        <script>
+            // Get the Account button and dropdown menu
+            const accountButton = document.getElementById('accountButton');
+            const dropdown = accountButton.parentElement;
+    
+            // Toggle dropdown visibility on button click
+            accountButton.addEventListener('click', () => {
+                dropdown.classList.toggle('active');
+            });
+    
+            // Close the dropdown if clicking outside
+            window.addEventListener('click', (event) => {
+                if (!dropdown.contains(event.target)) {
+                    dropdown.classList.remove('active');
+                }
+            });
+        </script>
+</body>
+</html>

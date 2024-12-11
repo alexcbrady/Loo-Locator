@@ -17,16 +17,6 @@ load_dotenv()
 DB_PASSWORD = os.getenv('DB_PASSWORD')
 API_KEY = os.getenv('API_KEY')
 
-MARKERS_DICT = {
-    'WOODWARD': '&markers=color:green%7Clabel:W%7CWoodward+Hall,+Charlotte,+NC',
-    'FRETWELL': '&markers=color:green%7Clabel:F%7CFretwell,+Charlotte,+NC',
-    'LIBRARY': '&markers=color:green%7Clabel:L%7CJ.+Murrey+Atkins+Library'
-}
-
-MARKERS = ''
-for key in MARKERS_DICT:
-    MARKERS += MARKERS_DICT[key]
-
 app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql://root:{DB_PASSWORD}@localhost:3306/loodb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -43,7 +33,7 @@ def index_form():
 
 @app.get('/main')
 def main_form():
-    return render_template('main.html',API_KEY=API_KEY,MARKERS=MARKERS)
+    return render_template('main.html',API_KEY=API_KEY)
 
 @app.get('/signin')
 def login_form():
@@ -120,7 +110,8 @@ def update_account():
 def building_form():
     building = website_repository_singleton.findBuilding(request.args.get('button', 'default'))
     reviews = website_repository_singleton.buildingReviews(building.building_id)
-    return render_template('building.html', building=building, reviews=reviews)
+    averageRating = website_repository_singleton.averageRating(building.building_id)
+    return render_template('building.html', building=building, reviews=reviews, averageRating=averageRating)
 
 @app.get('/review')
 def new_form():
@@ -137,5 +128,45 @@ def new():
     user_id = website_repository_singleton.findUser(session.get('user')['usern'], session.get('user')['email']).user_id
 
     website_repository_singleton.newReview(title, body, rating, user_id, building_id) 
+
+    return redirect('/main')
+
+@app.get('/about')
+def about_form():
+    return render_template('about.html')
+ 
+@app.get('/about2')
+def about2_form():
+    return render_template('about2.html')
+
+@app.get('/testimonial')
+def testimonial_form():
+    return render_template('testimonial.html')
+
+@app.get('/review/<int:review_id>')
+def view_form(review_id):
+    review = website_repository_singleton.viewReview(review_id=review_id)
+    if review.user_id == session.get('user')['user_id']:
+        editable = True
+    else:
+        editable = False
+    return render_template('viewReview.html', review=review, editable=editable)
+
+@app.get('/review/<int:review_id>/edit')
+def edit_form(review_id):
+    review = website_repository_singleton.viewReview(review_id=review_id)
+    return render_template('review.html', review=review)
+
+@app.post('/review/<int:review_id>/edit')
+def edit(review_id):
+    title = request.form.get('review_title')
+    body = request.form.get('review_body')
+    rating = request.form.get('review_rating')
+    building = request.form.get('review_building')
+
+    building_id = website_repository_singleton.findBuilding(building).building_id
+    user_id = website_repository_singleton.findUser(session.get('user')['usern'], session.get('user')['email']).user_id
+
+    website_repository_singleton.editReview(title, body, rating, user_id, building_id, review_id) 
 
     return redirect('/main')

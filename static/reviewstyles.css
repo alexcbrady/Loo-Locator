@@ -44,84 +44,87 @@ a:hover{
     color: rgb(207, 207, 207);
 }
 
+
 main{
     display: flex;
     width: 100%;
     margin: 0px auto;
     flex-direction: column;
     justify-content: center;
+    height: 70vh;
 
 }
-
-.building{
-    display: flex;
-    padding: 20px;
-    justify-content: center;
-    align-items: center;
-}
-.building div{
-    width: 40%;
-    padding: 50px;
-}
-
-.building div h2{
-    padding: 20px;
-}
-.building div p{
-    font-size: 20px;
-}
-
-main img{
-    width: 300px;
-    padding:  0px 20px;
-}
-
 main h1{
     text-align: center;
-    padding: 30px 0px 10px 0px;
+    padding: 40px;
 }
 
 .button{
     background-color: #005035;
     padding: 10px 20px;
+    border-style: none;
     border-radius: 10px;
     text-decoration: none;
+    font-size: large;
     color: white;
 }
+.button:hover{
+    background-color: #517c6d;
+}
 
-.container {
-    width: 90%;
-    display: grid;
-    grid-auto-columns: minmax(15rem, auto);
-    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
-    grid-gap: 2rem;
-    color: #ffffff;
-    padding: 20px 0px 0px 0px;
+.review{
+    background-color: white;
+    width: 30%;
+    padding: 40px;
     margin: 0 auto;
-    
-}
-
-.container div{
-    background-color: #005035;
     border-radius: 20px;
-    padding: 60px;
-    font-size: 2rem;
-    text-align: center;
     box-shadow: 1px 2px 2px 2px rgb(192, 192, 192);
+    font-size: larger;
+}
+.review label{
+    font-weight: bold;
+    width: 30%;
+    margin: 10px;
+}
+.review input{
+    text-align: center;
+    padding: 5px;
+    width: 70%;
+    border-radius: 10px;
+    font-size: large;
+}
+.review textarea{
+    padding: 5px;
+    width: 70%;
+    max-height: 300px;
+    max-width: 70%;
+    border-radius: 10px;
+    font-size: large;
+}
+.review select{
+    padding: 5px;
+    width: 70%;
+    border-style: groove;
+    border-radius: 10px;
+    font-size: large;
 }
 
-.review-container {
+.review div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
 }
 
-#btn{
+.reviewbtn{
     background-color: goldenrod;
     padding: 10px 20px;
+    border-style: none;
     border-radius: 10px;
     text-decoration: none;
-    font-weight: bold;
+    font-size: large;
     color: white;
+}
+.reviewbtn:hover{
+    background-color: gold;
 }

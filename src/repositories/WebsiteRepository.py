@@ -46,6 +46,17 @@ class WebsiteRepository:
         db.session.commit()
         return None
 
+    def editReview(self, title, body, rating, user_id, building_id, review_id):
+        foundReview = Review.query.filter_by(review_id = review_id).first()
+        foundReview.title = title
+        foundReview.body = body
+        foundReview.rating = rating
+        foundReview.user_id = user_id
+        foundReview.building_id = building_id
+        db.session.flush()
+        db.session.commit()
+        return None 
+
     def viewReview(self, review_id):
         foundReview = Review.query.filter_by(review_id = review_id).first()
         return foundReview
@@ -68,5 +79,19 @@ class WebsiteRepository:
     def buildingReviews(self, building_id):
         foundReviews = Review.query.filter_by(building_id = building_id)
         return foundReviews
+
+    def averageRating(self, building_id):
+        foundReviews = Review.query.filter_by(building_id = building_id)
+        total = 0
+        count = 0
+        for review in foundReviews:
+            total += review.rating
+            count += 1
+        if (count == 0):
+            return "test"
+        else:
+            average = total/count
+        return average
+            
 
 website_repository_singleton = WebsiteRepository()
